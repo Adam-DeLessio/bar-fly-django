@@ -5,10 +5,7 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-	path('', views.home, name='home'),
-	# url(r'^recipes/$', views.RecipeList, name='RecipeList'),
-	# path('recipes/<int:pk>/', views.RecipeDetail, name='RecipeDetail'),
-
+	url(r'^ingredients/$', views.IngredientList, name='IngredientList'),
 ]
 
 

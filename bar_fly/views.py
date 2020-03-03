@@ -9,27 +9,18 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 
 from .models import Ingredient
+from .serializers import IngredientSerializer
 from django.core.management.base import BaseCommand
 import requests
 
-url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
 
-
-
-
-
-
-
-
-
-
-def home(request):
-    response = requests.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list')
-    data = response.json()
-    serializer = IngredientSerializer(data, context={'request': request}, many=True)
-    return Response(serializer.data)
-
+@api_view(['GET', 'POST'])
+def IngredientList(request):
+	if request.method == 'GET':
+		data = Ingredient.objects.all()
+		serializer = IngredientSerializer(data, context={'request': request}, many=True)
+		return Response(serializer.data)
 
 
 
