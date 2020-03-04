@@ -11,6 +11,8 @@ psycopg2 = "*"
 requests = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
+corsheaders = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.8"
