@@ -7,16 +7,11 @@ class Ingredient(models.Model):
 	def __str__(self):
 		return self.name
 
+class Recipe(models.Model):
+	name = models.CharField(max_length=160)
+	ingredients = ArrayField(models.CharField(max_length=120, blank=True))
+	process = models.TextField(null=False)
 
-# class Recipe(models.Model):
-# 	name = models.CharField(max_length=160)
-# 	description = models.TextField(null=True)
-# 	genre = models.CharField(max_length=160, null=True)
-# 	ings = ArrayField(models.CharField(max_length=100, blank=True))
-# 	process = models.TextField(null=True)
-
-
-# 	def __str__(self):
-# 		return self.name
-
-
+	def __str__(self):
+		return self.name
+		

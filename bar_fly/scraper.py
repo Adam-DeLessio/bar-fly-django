@@ -16,9 +16,24 @@ def parseDrink(drink):
 	soup = BeautifulSoup(page, 'lxml')
 	results = soup.find('div', attrs={'class':'col-sm-9'}).findAll('li')
 	
-	ingredients.append(results)
+	for i in results:
+		for l in i:
+			array = list(l)
+			newArray = ' '
+			for c in array:
+				if c.isalpha() == False:
+					array.remove(c)
+				else:
+					newArray.join(c)
+				print(newArray)
 
-	# print(results)
+
+
+
+
+
+			# ingredients.append(l)
+
 
 
 
@@ -26,5 +41,4 @@ for drink in results:
 	parseDrink(drink)
 
 for i in ingredients:
-	for l in i:
-		print(l.text)
+	print(i)
